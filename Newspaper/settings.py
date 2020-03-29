@@ -114,7 +114,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-
 STATIC_URL = '/static/'
 
 # Custom Django auth settings
@@ -123,3 +122,5 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 # Bootstrap config
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+#Email Backend for pasword recovery  !! this is the console version , in production we use sendgrid
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
