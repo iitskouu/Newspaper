@@ -29,15 +29,20 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # Local
+    'users.apps.UsersConfig',
+    'pages.apps.PagesConfig',
+    'articles.apps.ArticlesConfig',
+    # 3rd party
+    'crispy_forms',
+    # Django
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'crispy_forms',
-    'users.apps.UsersConfig',
-    'pages.apps.PagesConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -104,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Tunis'
 
 USE_I18N = True
 
@@ -122,5 +127,11 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 # Bootstrap config
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
-#Email Backend for pasword recovery  !! this is the console version , in production we use sendgrid
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  #Email Backend for pasword recovery  !! this is the console version
+# sendGrid config
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = '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'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
