@@ -16,5 +16,5 @@ class Article(models.Model):
     def __str__(self):
         return self.title
 
-    def get_absolute_url(self):
+    def get_absolute_url(self):  # this is an automatic URL that shows one object
         return reverse('article_detail', args=[str(self.id)])
