@@ -18,3 +18,17 @@ class Article(models.Model):
 
     def get_absolute_url(self):  # this is an automatic URL that shows one object
         return reverse('article_detail', args=[str(self.id)])
+
+class Comment(models.Model):  #get_user_model is used to reference our custom user
+    article = models.ForeignKey(Article, on_delete=models.CASCADE , related_name='comments')  #FOO_set t3ayet lil comments (FK relation) we want to change Foo_set so we use related_name
+    comment = models.CharField(max_length=140)
+    author = models.ForeignKey(
+        get_user_model(),
+        on_delete=models.CASCADE,
+    )
+
+    def __str__(self):   #we always add str and get absolute url
+        return  self.comment
+
+    def  get_absolute_url(self):
+        return reverse('article_list')

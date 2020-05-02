@@ -39,7 +39,7 @@ class ArticleDeleteView(LoginRequiredMixin, DeleteView):
     login_url = 'login'
 
     def dispatch(self, request, *args, **kwargs):  #only the author of post can delete or edit
-        obj = self.get_object()
+        obj = self.get_object()  #obj =article
         if obj.author != self.request.user:
             raise PermissionDenied
         return super().dispatch(request, *args, **kwargs)
