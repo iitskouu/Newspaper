@@ -18,7 +18,7 @@ class Article(models.Model):
 
     def get_absolute_url(self):  # this is an automatic URL that shows one object
         return reverse('article_detail', args=[str(self.id)])
-
+#related name describes reverse relation between article and comments  .. * comments ---> 1 article = FK relation
 class Comment(models.Model):  #get_user_model is used to reference our custom user
     article = models.ForeignKey(Article, on_delete=models.CASCADE , related_name='comments')  #FOO_set t3ayet lil comments (FK relation) we want to change Foo_set so we use related_name
     comment = models.CharField(max_length=140)
