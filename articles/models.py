@@ -30,5 +30,5 @@ class Comment(models.Model):  #get_user_model is used to reference our custom us
     def __str__(self):   #we always add str and get absolute url
         return  self.comment
 
-    def  get_absolute_url(self):
+    def  get_absolute_url(self):  #redirection url after an operation
         return reverse('article_list')
